@@ -7,7 +7,7 @@ export const getTotalSales = async () => {
   await connectToDB();
   const orders = await Order.find(); // Preuzimanje svih narudžbina
   const totalOrders = orders.length;
-  const totalRevenue = orders.reduce((acc, order) => acc + order.totalAmount, 0); // Ukupni prihod iz svih narudžbina
+  const totalRevenue = orders.reduce((acc, order) => acc + order.totalAmount, 0).toFixed(2); // Ukupni prihod iz svih narudžbina
   return { totalOrders, totalRevenue };
 };
 
